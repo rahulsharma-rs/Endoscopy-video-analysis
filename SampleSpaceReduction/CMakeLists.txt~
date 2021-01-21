@@ -1,0 +1,5 @@
+#configure_file (
+#	"${Thesis_SOURCE_DIR}/${SampleSpaceReduction_SOURCE_DIR}/SampleSpaceReductionConfig.h.in"
+#	"${Thesis_BINARY_DIR}/${SampleSpaceReduction_BINARY_DIR}/SampleSpaceResuction.h"
+#	)
+add_library(SampleSpaceReduction histcomp)

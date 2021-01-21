@@ -1,0 +1,5 @@
+#configure_file (
+#	"${Thesis_SOURCE_DIR}/${FrameExtraction_SOURCE_DIR}/FrameExtractionConfig.h.in"
+#	"${Thesis_BINARY_DIR}/${FrameExtraction_BINARY_DIR}/FrameExtraction.h"
+#	)
+add_library( FrameExtraction break)

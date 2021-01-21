@@ -1,0 +1,70 @@
+#include "opencv2/opencv.hpp"
+#include<opencv2/highgui/highgui.hpp>
+#include<opencv2/imgproc/imgproc.hpp>
+#include <string.h>
+#include <cstdio>
+#include<time.h>
+#include<dirent.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <fstream>
+#include<iostream>
+#include<string.h>
+#include "ThesisConfig.h"
+
+//#include "FrameExtraction.h"
+//#include "SampleSpaceReduction.h"
+//#include "BloodDetection.h"
+
+using namespace cv;
+using namespace std;
+
+int main(int argc, char** argv)
+{   string st= argv[1]; 
+    
+     if( argc < 2 )
+     { printf("** Error. Usage: ./Project_Demo <complete path of the video>\n");
+       return -1;
+     }
+    ofstream myfile;
+    ifstream mfile;  
+    char buff [70],buff2[70], buff1[20];
+    int t,i=1,dir_count=0, video_load_check,blood;
+    clock_t clk;
+    clk= clock(); 
+    mfile.open("/home/rahul/test/Integrating/counter.txt");
+    mfile>>dir_count;
+    dir_count++;
+    mfile.close();
+    myfile.open("/home/rahul/test/Integrating/counter.txt");
+    myfile<<dir_count;
+    myfile.close();
+    t=sprintf(buff1, "sample%d",dir_count);
+    
+    t=sprintf(buff2,"/home/rahul/test/Integrating/Samples/%s",buff1);
+    const char* buff3= buff2;
+    cout<<buff3;
+    mkdir(buff3,S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);//creating the directory for sample space.
+    
+    t=sprintf(buff2,"/home/rahul/test/Integrating/Samples/%s/blood",buff1);
+    const char* buff4= buff2;
+    mkdir(buff4,S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);//creating the directory for detected blood.
+    
+    video_load_check=initialpass(&buff1, st);//call for Extracting Frame from the video
+    if(video_load_check==-1){
+    cout<<" Unable to load Video";
+    return 0;
+    }
+    histcomp(&buff1);// Applying Sample Space Reduction
+    blood=bloodtest(&buff1);
+
+    clk= clock() - clk;
+    float f = float(clk/CLOCKS_PER_SEC);
+    cout<< clk;
+      
+  myfile.open ("/home/rahul/test/Integrating/Thesis/Processing_time_log.txt",ios::app);
+   myfile << "for the wait time "<<i<<"----->"<<st<<"is "<<f<<"seconds" <<"\n";
+  myfile.close();
+    // the camera will be deinitialized automatically in VideoCapture destructor
+    return 0;
+}
