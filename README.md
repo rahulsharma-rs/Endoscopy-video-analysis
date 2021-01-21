@@ -2,7 +2,7 @@
 Masters project for endoscopic video analysis 
 
 Medical Science has benefited a lot with the intervention of technology into it, and ”Sample Space Reduction and Anomaly Detection in Endoscopic Video Analysis” is a fusion of Technology, Computing Science, and Gastric Science. This work deals in expediting the time of endoscopic video analysis by introducing computing logic and computers, in this image processing techniques have been applied to reduce the sample space and then detecting an anomaly in the form of redness and blood detection. 
-# Abstract of the [Thesis](https://www.researchgate.net/publication/348306759_Sample_Space_Reduction_and_Anomaly_Detection_in_Endoscopic_Video_Analysis) 
+# Abstract of the Thesis [(Link)](https://www.researchgate.net/publication/348306759_Sample_Space_Reduction_and_Anomaly_Detection_in_Endoscopic_Video_Analysis) 
 
 Endoscopy is an old technique used in several kinds of imaging diagnosis colonoscopy, upper gastrointestinal endoscopy, enteroscopy, bronchoscopy, cystoscopy, laparoscopy, wireless capsule endoscopy, and some minimally invasive surgeries (i.e., video endoscopic neurosurgery). In all the investigation techniques mentioned a video is generated and is analyzed by assistants and experts in a process to diagnose some disease. Endoscopy of the complete gastric region is the focus of the study in this thesis. The main objective is to reduce the diagnosis time after obtaining the endoscopic video from the endoscope, as a lot of time gets wasted in analyzing the video again and again by different experts or professionals.
 
